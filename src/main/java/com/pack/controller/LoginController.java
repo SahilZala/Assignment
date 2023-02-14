@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pack.exceptions.UsernameNotFoundException;
+import com.pack.model.GeoIP;
 import com.pack.model.History;
 import com.pack.model.JWTRequest;
 import com.pack.model.JWTResponse;
@@ -66,7 +67,7 @@ public class LoginController {
 			
 			String token = jwtUtil.generateToken(userDetails);
 			
-			String g = locationService.getLocation(HttpUtils.getRequestIP(request)).toString();
+			GeoIP g = locationService.getLocation(HttpUtils.getRequestIP(request));
 			History h = new History(
 					String.valueOf(new Date().getTime()),
 					userDetails.getUsername(),
