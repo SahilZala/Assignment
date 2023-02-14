@@ -90,9 +90,9 @@ public class LoginController {
 	}
 	
 	
-	@GetMapping("/dumy")
-	public String dumy() {
-		return "sahil dumy";
+	@GetMapping("/check")
+	public ResponseEntity<Boolean> dumy() {
+		return new ResponseEntity<>(true,HttpStatus.OK);
 	}
 	
 }
