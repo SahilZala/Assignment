@@ -24,5 +24,10 @@ public class HistoryServiceImpl implements HistoryService {
 	public List<History> findByUserId(String userId) {
 		return historyRepo.findByUserId(userId).get();
 	}
+
+	@Override
+	public List<History> getAll() {
+		return historyRepo.findAll();
+	}
 	
 }

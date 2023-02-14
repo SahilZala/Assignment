@@ -71,7 +71,7 @@ public class LoginController {
 			History h = new History(
 					String.valueOf(new Date().getTime()),
 					userDetails.getUsername(),
-					g,
+					g.getCity()+g.getIpAddress(),
 					LocalDate.now().toString(),
 					"",
 					token

@@ -8,7 +8,7 @@ public class History {
 	@Id
 	private String id;
 	private String userId;
-	private GeoIP geoLocation;
+	private String geoLocation;
 	private String loginTime;
 	private String logoutTime;
 	private String token;
@@ -32,10 +32,10 @@ public class History {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public GeoIP getGeoLocation() {
+	public String getGeoLocation() {
 		return geoLocation;
 	}
-	public void setGeoLocation(GeoIP geoLocation) {
+	public void setGeoLocation(String geoLocation) {
 		this.geoLocation = geoLocation;
 	}
 	public String getLoginTime() {
@@ -50,7 +50,7 @@ public class History {
 	public void setLogoutTime(String logoutTime) {
 		this.logoutTime = logoutTime;
 	}
-	public History(String id, String userId, GeoIP geoLocation, String loginTime, String logoutTime,String token) {
+	public History(String id, String userId, String geoLocation, String loginTime, String logoutTime,String token) {
 		super();
 		this.id = id;
 		this.userId = userId;
