@@ -2,10 +2,13 @@ package com.pack.model;
 
 public class JWTResponse {
 	String token;
+	String user;
 	
+	
+
 	@Override
 	public String toString() {
-		return "JWTResponse [token=" + token + "]";
+		return "JWTResponse [token=" + token + ", user=" + user + "]";
 	}
 
 	public JWTResponse() {
@@ -13,9 +16,10 @@ public class JWTResponse {
 		
 	}
 
-	public JWTResponse(String token) {
+	public JWTResponse(String token,String user) {
 		super();
 		this.token = token;
+		this.user = user;
 	}
 
 	public String getToken() {
@@ -25,5 +29,15 @@ public class JWTResponse {
 	public void setToken(String token) {
 		this.token = token;
 	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+	
+	
 	
 }
