@@ -8,5 +8,6 @@ public interface HistoryService {
 	public void createHistory(History history);
 	public List<History> findByUserId(String userId);
 	public List<History> getAll();
+	public History updateHistory(String token);
 	
 }

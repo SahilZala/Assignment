@@ -1,6 +1,7 @@
 package com.pack.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -11,6 +12,7 @@ public class History {
 	private String geoLocation;
 	private String loginTime;
 	private String logoutTime;
+	@Indexed(unique=true)
 	private String token;
 	
 	
@@ -63,4 +65,11 @@ public class History {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public String toString() {
+		return "History [id=" + id + ", userId=" + userId + ", geoLocation=" + geoLocation + ", loginTime=" + loginTime
+				+ ", logoutTime=" + logoutTime + ", token=" + token + "]";
+	}
+	
+	
 }

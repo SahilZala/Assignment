@@ -16,17 +16,24 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.pack.service.HistoryService;
 import com.pack.util.JWTUtil;
+
+import io.jsonwebtoken.ExpiredJwtException;
 
 @Component
 public class JwtAuthenticationFilter  extends OncePerRequestFilter {
 
+	@Autowired
+	HistoryService historyService;
+	
 	
 	@Autowired
 	JWTUtil jwtUtil;
 	
 	@Autowired
 	UserDetailsService userDetailsService;
+	
 	
 	
 	@Override
@@ -57,8 +64,11 @@ public class JwtAuthenticationFilter  extends OncePerRequestFilter {
 				}
 				
 			}
-			catch(RuntimeException ex) {
+			catch(ExpiredJwtException ex) {
 				
+				historyService.updateHistory(requestTokenHeader.substring(7));
+			}
+			catch(RuntimeException ex) {
 			}
 		}
 		
