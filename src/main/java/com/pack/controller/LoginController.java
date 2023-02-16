@@ -68,13 +68,15 @@ public class LoginController {
 			String token = jwtUtil.generateToken(userDetails);
 			
 			GeoIP g = locationService.getLocation(HttpUtils.getRequestIP(request));
+			
 			History h = new History(
 					String.valueOf(new Date().getTime()),
 					userDetails.getUsername(),
 					g.getCity()+g.getIpAddress(),
 					LocalDate.now().toString(),
 					"",
-					token
+					token,
+					request.getHeader("User-Agent")
 				);
 			
 			historyService.createHistory(h);
@@ -91,7 +93,10 @@ public class LoginController {
 	
 	
 	@GetMapping("/check")
-	public ResponseEntity<Boolean> dumy() {
+	public ResponseEntity<Boolean> dumy(HttpServletRequest req) {
+		
+		System.out.println(req.getHeader("User-Agent"));
+			
 		return new ResponseEntity<>(true,HttpStatus.OK);
 	}
 	

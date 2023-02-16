@@ -12,10 +12,20 @@ public class History {
 	private String geoLocation;
 	private String loginTime;
 	private String logoutTime;
+	public String device;
 	@Indexed(unique=true)
 	private String token;
 	
 	
+	
+	
+	
+	public String getDevice() {
+		return device;
+	}
+	public void setDevice(String device) {
+		this.device = device;
+	}
 	public String getToken() {
 		return token;
 	}
@@ -52,24 +62,26 @@ public class History {
 	public void setLogoutTime(String logoutTime) {
 		this.logoutTime = logoutTime;
 	}
-	public History(String id, String userId, String geoLocation, String loginTime, String logoutTime,String token) {
+	
+	@Override
+	public String toString() {
+		return "History [id=" + id + ", userId=" + userId + ", geoLocation=" + geoLocation + ", loginTime=" + loginTime
+				+ ", logoutTime=" + logoutTime + ", device=" + device + ", token=" + token + "]";
+	}
+	public History() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public History(String id, String userId, String geoLocation, String loginTime, String logoutTime, String device,
+			String token) {
 		super();
 		this.id = id;
 		this.userId = userId;
 		this.geoLocation = geoLocation;
 		this.loginTime = loginTime;
 		this.logoutTime = logoutTime;
+		this.device = device;
 		this.token = token;
 	}
-	public History() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	@Override
-	public String toString() {
-		return "History [id=" + id + ", userId=" + userId + ", geoLocation=" + geoLocation + ", loginTime=" + loginTime
-				+ ", logoutTime=" + logoutTime + ", token=" + token + "]";
-	}
-	
 	
 }
