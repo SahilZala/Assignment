@@ -75,8 +75,8 @@ public class LoginController {
 					g.getCity()+g.getIpAddress(),
 					LocalDate.now().toString(),
 					"",
-					token,
-					request.getHeader("User-Agent")
+					request.getHeader("User-Agent"),
+					token
 				);
 			
 			historyService.createHistory(h);
